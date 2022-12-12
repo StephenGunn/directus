@@ -132,7 +132,7 @@ export class FilesService extends ItemsService {
 		const metadata: Metadata = {};
 
 		try {
-			const sharpMetadata = await sharp(bufferContent, {}).metadata();
+			const sharpMetadata = await sharp(bufferContent, { failOnError: false }).metadata();
 
 			if (sharpMetadata.orientation && sharpMetadata.orientation >= 5) {
 				metadata.height = sharpMetadata.width;

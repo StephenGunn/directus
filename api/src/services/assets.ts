@@ -151,6 +151,7 @@ export class AssetsService {
 				const transformer = sharp({
 					limitInputPixels: Math.pow(env.ASSETS_TRANSFORM_IMAGE_MAX_DIMENSION, 2),
 					sequentialRead: true,
+					failOnError: false,
 				});
 
 				if (transforms.find((transform) => transform[0] === 'rotate') === undefined) transformer.rotate();
